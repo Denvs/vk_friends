@@ -1,0 +1,13 @@
+user_id=86612022
+access_token=5542fada6047f8c8bbb9640b6fd7da8a87225a7db35bb94daa6aa82c796456c7980fde0b48aea332c3152
+
+
+https://api.vk.com/method/users.get?user_id=86612022&v=5.52
+https://api.vk.com/method/friends.get?user_id=86612022&v=5.52
+https://api.vk.com/method/friends.get?user_id=1007505&v=5.52
+
+https://oauth.vk.com/authorize
+
+https://oauth.vk.com/authorize?client_id=1&display=page
+&redirect_uri=http://example.com/callback&scope=friends&response_type=token&v=5.62&state=123456
+
