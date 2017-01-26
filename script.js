@@ -3,11 +3,12 @@ document.addEventListener("DOMContentLoaded",
   	function (event) {
     
   		function get_user_id (event) {
+          
       		var user_id = document.getElementById("user_id").value;
         	console.log("User ID: " + user_id);
         	document.getElementById("content").textContent = user_id;
 
-          VK.Auth.login();
+          
 
         	var r = new XMLHttpRequest();
           
