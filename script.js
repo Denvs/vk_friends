@@ -9,8 +9,9 @@ document.addEventListener("DOMContentLoaded",
 
         	var r = new XMLHttpRequest();
         	//r.open("GET", "https://api.vk.com/method/users.get?user_id=86612022&v=5.52&access_token=5542fada6047f8c8bbb9640b6fd7da8a87225a7db35bb94daa6aa82c796456c7980fde0b48aea332c3152", true);
-        	var url = "https://api.vk.com/method/users.get?user_id=86612022&v=5.52&access_token=5542fada6047f8c8bbb9640b6fd7da8a87225a7db35bb94daa6aa82c796456c7980fde0b48aea332c3152";
-        	r.open('GET', url, true);
+        	var url = "https://api.vk.com/method/users.get?user_id=86612022&v=5.52";
+        	//var url = 'https://denvs.github.io/vk_friends/data.json'
+          r.open('GET', url, true);
         	r.onload = function(){
         		console.log(this.responseText);
         	}
@@ -21,14 +22,7 @@ document.addEventListener("DOMContentLoaded",
         			
         
         	}
-
-        	// function data_processing() {
-        	// 	console.log(r.responseText);
-        	// }
-
-            //var r = new XMLHttpRequest();
-        	//r.open("GET", "data.json", false)
-   //      	r.send();
+       
    //      	if (r.status != 200) {
   	// 			// обработать ошибку
   	// 			alert( r.status + ': ' + r.statusText ); // пример вывода: 404: Not Found
@@ -38,12 +32,7 @@ document.addEventListener("DOMContentLoaded",
 //}
 
 		document.querySelector("button").addEventListener("click", get_user_id);
-    	}
-
-
-		
-
-
+  }
 );
 
 
