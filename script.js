@@ -7,13 +7,14 @@ document.addEventListener("DOMContentLoaded",
         	console.log("User ID: " + user_id);
         	document.getElementById("content").textContent = user_id;
 
+          VK.Auth.login();
+
         	var r = new XMLHttpRequest();
           
         	
         	var url = "https://api.vk.com/method/users.get?user_id=86612022&v=5.52";
           //var url = 'https://denvs.github.io/vk_friends/data.json'
           r.open('GET', url, true);
-          r.setRequestHeader('Referer', 'https://api.vk.com');
           r.onreadystatechange = function(){
             if (r.readyState===4) {
               if (r.status >= 200 && r.status < 400) {
