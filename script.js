@@ -3,13 +3,25 @@ document.addEventListener("DOMContentLoaded",
   	function (event) {
     
   		function get_user_id (event) {
-          
+
+          VK.Auth.login(function(response) {
+            if (response.session) {
+              cons.log("Auth success");
+            if (response.settings) {
+            /* Выбранные настройки доступа пользователя, если они были запрошены */
+              console.log('settings')
+            }
+            } else {
+            /* Пользователь нажал кнопку Отмена в окне авторизации */
+              console.log("Auth canceled");
+              }
+          });
+
       		var user_id = document.getElementById("user_id").value;
         	console.log("User ID: " + user_id);
         	document.getElementById("content").textContent = user_id;
 
           
-
         	var r = new XMLHttpRequest();
           
         	
