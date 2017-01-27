@@ -7,13 +7,13 @@ document.addEventListener("DOMContentLoaded",
           VK.Auth.login(function(response) {
             if (response.session) {
               console.log("Auth success");
-            if (response.settings) {
-            /* Выбранные настройки доступа пользователя, если они были запрошены */
-              console.log('settings')
-            }
+              if (response.settings) {
+                /* Выбранные настройки доступа пользователя, если они были запрошены */
+                console.log('settings');
+              }
             } else {
-            /* Пользователь нажал кнопку Отмена в окне авторизации */
-              console.log("Auth canceled");
+                /* Пользователь нажал кнопку Отмена в окне авторизации */
+                console.log("Auth canceled");
               }
           });
 
