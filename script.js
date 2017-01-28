@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded",
       
 
 
-  		function get_user_id (event) {
+  		function build_graph (event) {
           
       		var user_id = document.getElementById("user_id").value;
         	console.log("User ID: " + user_id);
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded",
 //}
   
     document.querySelector("#login").addEventListener("click", vk_login);
-		document.querySelector("button").addEventListener("click", get_user_id);
+		document.querySelector("#draw_graph").addEventListener("click", build_graph);
   }
 );
 
