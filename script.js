@@ -26,10 +26,9 @@ document.addEventListener("DOMContentLoaded",
                   document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
                   
 
-                  VK.Api.call('friends.get', function(r) {
-                      if(r.response) {
-                          friends = r.response;
-                          console.log(friends);
+                  VK.Api.call('friends.get', {user_id: current_user.id}, function(response) {
+                      if(response) {
+                          console.log(response);
                       }
                   });   
                                     
