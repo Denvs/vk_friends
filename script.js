@@ -63,7 +63,10 @@ document.addEventListener("DOMContentLoaded",
         	VK.Api.call('friends.get', {user_id: current_user.id}, function(response) {
               if(response) {
                   friends = response.response;
-                  console.log(friends);
+                  for (f in friends) {
+                    console.log(friends[f].first_name + " " + friends[f].last_name);
+                  }
+                  
               }
           }); 
 
