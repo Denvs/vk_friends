@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded",
 
                       VK.Api.call('users.get', {user_id: friends[f]}, function(response) {
                           if(response) {
-                              console.log(response);
+                              console.log(response.response[0]);
                         
                           }
                       }); 
