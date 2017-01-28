@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded",
                   var user_first_name = response.session.user.first_name;
                   document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
                                     
-                  var friends = friends.get;
+                  var friends = friends.get();
                   console.log(friends);
                 } else {
                 // Неавторизованный в Open API пользователь,  response.status="not_authorized" 
