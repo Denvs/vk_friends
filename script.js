@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded",
               
               
               VK.Auth.getLoginStatus(function(response) {
+                 console.log("test");
                 if (response.session) {
                 // Авторизованный в Open API пользователь, response.status="connected" 
                   console.log("response.status = connected");
