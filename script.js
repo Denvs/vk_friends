@@ -2,7 +2,8 @@
 document.addEventListener("DOMContentLoaded",
   	
     function (event) {
-      
+        
+        var current_user = {};
         
       function vk_login (event) {
         
@@ -18,8 +19,9 @@ document.addEventListener("DOMContentLoaded",
                  
                 if (response.session) {
                 // Авторизованный в Open API пользователь, response.status="connected" 
-                  console.log(response.session.user);
-                  var user_first_name = response.session.user.first_name;
+                  current_user = response.session.user;
+                  console.log("Current_user: " + current_user);
+                  var user_first_name = current_user.first_name;
                   document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
                                     
                   
