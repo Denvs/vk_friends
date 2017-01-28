@@ -26,13 +26,7 @@ document.addEventListener("DOMContentLoaded",
                   document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
                   
 
-                  VK.Api.call('friends.get', {user_id: current_user.id}, function(response) {
-                      if(response) {
-                          friends = response.response;
-                          console.log(friends);
-
-                      }
-                  });   
+  
                                     
                   
                 } else {
@@ -66,7 +60,12 @@ document.addEventListener("DOMContentLoaded",
           
           document.querySelector("#content").textContent = "test";
       	     
-        	console.log(current_user.first_name);
+        	VK.Api.call('friends.get', {user_id: current_user.id}, function(response) {
+              if(response) {
+                  friends = response.response;
+                  console.log(friends);
+              }
+          }); 
 
           
       }
