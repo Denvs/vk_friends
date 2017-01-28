@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded",
     function (event) {
         
         var current_user = {};
+        var friends = {};
         
       function vk_login (event) {
         
@@ -24,7 +25,13 @@ document.addEventListener("DOMContentLoaded",
                   var user_first_name = current_user.first_name;
                   document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
                   
-                  console.log(VK.Api.call('friends.get', {user_id: 86612022}));   
+
+                  VK.Api.call('friends.get', function(r) {
+                      if(r.response) {
+                          friends = r.response;
+                          console.log(friends);
+                      }
+                  });   
                                     
                   
                 } else {
