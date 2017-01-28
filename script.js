@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded",
 
         
       }
-    }
+    
       
 
 
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded",
         	
           
       }
-       
+    
 
     document.querySelector("#login").addEventListener("click", vk_login);
 		document.querySelector("#draw_graph").addEventListener("click", build_graph);
