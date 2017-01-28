@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded",
   	function (event) {
       
-        VK.init({apiId: 5825448});
+        
 
 
 
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded",
 
 
       function vk_login (event) {
-
+        VK.init({apiId: 5825448});
         VK.Auth.login();
       }  
       
