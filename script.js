@@ -9,23 +9,37 @@ document.addEventListener("DOMContentLoaded",
         VK.init({apiId: 5825448});
         
         VK.Auth.login(function(response) {
+            
             if (response.session) {
               console.log("Authorization success");
-              document.querySelector("#greeting").textContent = "Hello " + session.user.first_name;
-              console.log(response.headers);
+              
+              
+              VK.Auth.getLoginStatus(function(response) {
+                if (response.session) {
+                /* Авторизованный в Open API пользователь, response.status="connected" */
+                } else {
+                /* Неавторизованный в Open API пользователь,  response.status="not_authorized" */
+            
+
+                //document.querySelector("#greeting").textContent = "Hello " + session.user.first_name;
+
+                  }
+                });
+
               if (response.settings) {
                 /* Выбранные настройки доступа пользователя, если они были запрошены */
                 console.log('settings');
               }
+            
             } else {
                 /* Пользователь нажал кнопку Отмена в окне авторизации */
                 console.log("Authorization canceled");
               }
-          },
-          settings(2));
+          });
 
         
-      }  
+      }
+    }
       
 
 
