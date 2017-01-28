@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded",
               if(response) {
                   friends = response.response;
                   for (f in friends) {
-                    console.log(friends[f].first_name + " " + friends[f].last_name);
+                    console.log(friends[f]);
                   }
                   
               }
