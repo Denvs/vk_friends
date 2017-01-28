@@ -17,11 +17,12 @@ document.addEventListener("DOMContentLoaded",
               VK.Auth.getLoginStatus(function(response) {
                 if (response.session) {
                 /* Авторизованный в Open API пользователь, response.status="connected" */
+                  console.log("user authorized")
                 } else {
                 /* Неавторизованный в Open API пользователь,  response.status="not_authorized" */
             
 
-                //document.querySelector("#greeting").textContent = "Hello " + session.user.first_name;
+                /*document.querySelector("#greeting").textContent = "Hello " + session.user.first_name; */
 
                   }
                 });
