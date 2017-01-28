@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded",
                   console.log(response.session.user);
                   var user_first_name = response.session.user.first_name;
                   document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
+                  var friends = response.session.user.friends.get;
+                  console.log(friends);
                 } else {
                 // Неавторизованный в Open API пользователь,  response.status="not_authorized" 
                     
