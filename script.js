@@ -42,36 +42,36 @@ document.addEventListener("DOMContentLoaded",
 );
 
 
-// var r = new XMLHttpRequest();
+/* var r = new XMLHttpRequest();
                   
-          // var url = "https://api.vk.com/method/users.get?user_id=86612022&v=5.52";
-         //  //var url = 'https://denvs.github.io/vk_friends/data.json'
-         //  r.open('GET', url, true);
-         //  r.onreadystatechange = function(){
-         //    if (r.readyState===4) {
-         //      if (r.status >= 200 && r.status < 400) {
-         //        console.log(JSON.parse(r.responseText).response[0].first_name);
-         //      }
-         //      else {
-         //        console.log("Error ocured: " + r.status)
-         //      }
-         //    }
-         //  };
+          var url = "https://api.vk.com/method/users.get?user_id=86612022&v=5.52";
+          //var url = 'https://denvs.github.io/vk_friends/data.json'
+          r.open('GET', url, true);
+          r.onreadystatechange = function(){
+            if (r.readyState===4) {
+              if (r.status >= 200 && r.status < 400) {
+                console.log(JSON.parse(r.responseText).response[0].first_name);
+              }
+              else {
+                console.log("Error ocured: " + r.status)
+              }
+            }
+          };
  
-          // r.send();
+          r.send();
+
+*/
 
 
 
-
-
-   //       if (r.status != 200) {
-    //      // обработать ошибку
-    //      alert( r.status + ': ' + r.statusText ); // пример вывода: 404: Not Found
-      // } else {
-    //      // вывести результат
-    //      console.log( JSON.parse(r.responseText).response[0].first_name ); // responseText -- текст ответа.
-//}
-  
+     /*    if (r.status != 200) {
+         // обработать ошибку
+         alert( r.status + ': ' + r.statusText ); // пример вывода: 404: Not Found
+      } else {
+         // вывести результат
+         console.log( JSON.parse(r.responseText).response[0].first_name ); // responseText -- текст ответа.
+}
+  */
 
 
 
