@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded",
         VK.Auth.login(function(response) {
             if (response.session) {
               console.log("Authorization success");
+              document.querySelector("#greeting").textContent = "Hello " + session.user.first_name;
               console.log(response.headers);
               if (response.settings) {
                 /* Выбранные настройки доступа пользователя, если они были запрошены */
