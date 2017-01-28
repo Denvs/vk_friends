@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded",
   	function (event) {
     
   		function get_user_id (event) {
-
+          VK.init({apiId: 5825448});
           VK.Auth.login(function(response) {
             if (response.session) {
               console.log("Auth success");
