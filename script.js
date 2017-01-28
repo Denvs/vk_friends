@@ -29,18 +29,17 @@ document.addEventListener("DOMContentLoaded",
 
               if (response.settings) {
                 /* Выбранные настройки доступа пользователя, если они были запрошены */
-                console.log('settings');
+                
               }
             
             } else {
                 /* Пользователь нажал кнопку Отмена в окне авторизации */
                 console.log("Authorization canceled");
               }
-          });
+          })
 
         
       }
-    
       
 
 
