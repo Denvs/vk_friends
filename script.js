@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded",
                   console.log("Current_user: " + current_user);
                   var user_first_name = current_user.first_name;
                   document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
-                  var friends = VK.Api.call('friends.get');   
+                  var friends = VK.Api.call('friends.get', {user_id: 86612022});   
                   console.log(friends);                   
                   
                 } else {
