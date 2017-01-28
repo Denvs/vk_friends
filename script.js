@@ -5,11 +5,12 @@ document.addEventListener("DOMContentLoaded",
       
         
       function vk_login (event) {
+        
         VK.init({apiId: 5825448});
         
         VK.Auth.login(function(response) {
             if (response.session) {
-              console.log("Auth success");
+              console.log("Authorization success");
               console.log(response.headers);
               if (response.settings) {
                 /* Выбранные настройки доступа пользователя, если они были запрошены */
@@ -17,25 +18,20 @@ document.addEventListener("DOMContentLoaded",
               }
             } else {
                 /* Пользователь нажал кнопку Отмена в окне авторизации */
-                console.log("Auth canceled");
+                console.log("Authorization canceled");
               }
           });
 
-        //VK.Auth.login();
+        
       }  
       
 
 
   		function build_graph (event) {
           
-      		// var user_id = document.getElementById("user_id").value;
-        // 	console.log("User ID: " + user_id);
-        // 	document.getElementById("content").textContent = user_id;
-
-          
+      	         
         	var r = new XMLHttpRequest();
-          
-        	
+                 	
         	var url = "https://api.vk.com/method/users.get?user_id=86612022&v=5.52";
           //var url = 'https://denvs.github.io/vk_friends/data.json'
           r.open('GET', url, true);
@@ -52,9 +48,7 @@ document.addEventListener("DOMContentLoaded",
  
         	r.send();
           
-        			
-        
-        	}
+      }
        
    //      	if (r.status != 200) {
   	// 			// обработать ошибку
