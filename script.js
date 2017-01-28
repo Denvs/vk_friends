@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded",
           VK.Auth.login(function(response) {
             if (response.session) {
               console.log("Auth success");
-              console.log(Response.headers);
+              console.log(response.headers);
               if (response.settings) {
                 /* Выбранные настройки доступа пользователя, если они были запрошены */
                 console.log('settings');
