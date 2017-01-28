@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded",
   	function (event) {
       
         VK.init({apiId: 5825448});
+
+
+
+
+
         VK.Auth.login(function(response) {
             if (response.session) {
               console.log("Auth success");
@@ -16,6 +21,14 @@ document.addEventListener("DOMContentLoaded",
                 console.log("Auth canceled");
               }
           });
+
+
+      function vk_login (event) {
+
+        VK.Auth.login();
+      }  
+      
+
 
   		function get_user_id (event) {
           
@@ -54,7 +67,8 @@ document.addEventListener("DOMContentLoaded",
   	// 			// вывести результат
   	// 			console.log( JSON.parse(r.responseText).response[0].first_name ); // responseText -- текст ответа.
 //}
-
+  
+    document.querySelector("vk_login").addEventListener("click", vk_login);
 		document.querySelector("button").addEventListener("click", get_user_id);
   }
 );
