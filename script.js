@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded",
                 /* Пользователь нажал кнопку Отмена в окне авторизации */
                 console.log("Authorization canceled");
               }
-          });
+          },
+          settings(2));
 
         
       }  
