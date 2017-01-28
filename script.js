@@ -22,8 +22,7 @@ document.addEventListener("DOMContentLoaded",
                   var user_first_name = response.session.user.first_name;
                   document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
                                     
-                  var friends = response.session.friends.get();
-                  console.log(friends);
+                  
                 } else {
                 // Неавторизованный в Open API пользователь,  response.status="not_authorized" 
                     
@@ -54,8 +53,8 @@ document.addEventListener("DOMContentLoaded",
   		function build_graph (event) {
           
           document.querySelector("#content").textContent = "test";
-      	         
-        	
+      	  var friends = VK.Api.call('friends.get');       
+        	console.log(friends);
           
       }
     
