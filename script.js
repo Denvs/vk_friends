@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded",
   	// 			console.log( JSON.parse(r.responseText).response[0].first_name ); // responseText -- текст ответа.
 //}
   
-    document.querySelector("vk_login").addEventListener("click", vk_login);
+    document.querySelector("#vk_login").addEventListener("click", vk_login);
 		document.querySelector("button").addEventListener("click", get_user_id);
   }
 );
