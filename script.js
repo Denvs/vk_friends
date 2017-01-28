@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded",
               VK.Auth.getLoginStatus(function(response) {
                 if (response.session) {
                 // Авторизованный в Open API пользователь, response.status="connected" 
-                  console.log("response.status: " + response.status);
+                  console.log("response.status = connected");
                 } else {
                 // Неавторизованный в Open API пользователь,  response.status="not_authorized" 
-            
+                    console.log("response.status = not_authorized");
              
 
                   }
