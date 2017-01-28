@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded",
                   var user_first_name = response.session.user.first_name;
                   document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
                   var user_id = response.session.user.id;
+                  console.log(user_id);
                   var friends = user_id.friends.get;
                   console.log(friends);
                 } else {
