@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded",
                 if (response.session) {
                 // Авторизованный в Open API пользователь, response.status="connected" 
                   console.log(response.status);
-                  console.log(response.session.user);
+                  user_first_name = response.session.user.first_name;
+                  document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
                 } else {
                 // Неавторизованный в Open API пользователь,  response.status="not_authorized" 
                     
