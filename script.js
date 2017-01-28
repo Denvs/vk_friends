@@ -15,13 +15,13 @@ document.addEventListener("DOMContentLoaded",
               
               
               VK.Auth.getLoginStatus(function(response) {
-                 console.log("test");
+                 
                 if (response.session) {
                 // Авторизованный в Open API пользователь, response.status="connected" 
-                  console.log("response.status = connected");
+                  console.log(response.status);
                 } else {
                 // Неавторизованный в Open API пользователь,  response.status="not_authorized" 
-                    console.log("response.status = not_authorized");
+                    
              
 
                   }
