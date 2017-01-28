@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded",
                   console.log("Current_user: " + current_user);
                   var user_first_name = current_user.first_name;
                   document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
-                                    
+                  var friends = VK.Api.call('friends.get');   
+                  console.log(friends);                   
                   
                 } else {
                 // Неавторизованный в Open API пользователь,  response.status="not_authorized" 
@@ -57,8 +58,7 @@ document.addEventListener("DOMContentLoaded",
           document.querySelector("#content").textContent = "test";
       	     
         	console.log(current_user.first_name);
-          var friends = VK.Api.call('friends.get', {user_id: current_user.id});   
-          console.log(friends); 
+
           
       }
     
