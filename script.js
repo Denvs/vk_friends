@@ -1,10 +1,9 @@
 // Event handling
 document.addEventListener("DOMContentLoaded",
   	function (event) {
-    
-  		function get_user_id (event) {
-          VK.init({apiId: 5825448});
-          VK.Auth.login(function(response) {
+      
+        VK.init({apiId: 5825448});
+        VK.Auth.login(function(response) {
             if (response.session) {
               console.log("Auth success");
               console.log(response.headers);
@@ -18,6 +17,8 @@ document.addEventListener("DOMContentLoaded",
               }
           });
 
+  		function get_user_id (event) {
+          
       		var user_id = document.getElementById("user_id").value;
         	console.log("User ID: " + user_id);
         	document.getElementById("content").textContent = user_id;
