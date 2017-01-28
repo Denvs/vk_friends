@@ -20,11 +20,12 @@ document.addEventListener("DOMContentLoaded",
                 if (response.session) {
                 // Авторизованный в Open API пользователь, response.status="connected" 
                   current_user = response.session.user;
-                  console.log("Current_user: " + current_user);
+                  console.log("Current_user: " + current_user.id);
                   var user_first_name = current_user.first_name;
                   document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
-                  var friends = VK.Api.call('friends.get', {user_id: 86612022});   
-                  console.log(friends);                   
+                  
+                  console.log(VK.Api.call('friends.get', {user_id: 86612022}));   
+                                    
                   
                 } else {
                 // Неавторизованный в Open API пользователь,  response.status="not_authorized" 
