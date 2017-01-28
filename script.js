@@ -55,8 +55,10 @@ document.addEventListener("DOMContentLoaded",
   		function build_graph (event) {
           
           document.querySelector("#content").textContent = "test";
-      	  //var friends = VK.Api.call('friends.get()');       
+      	     
         	console.log(current_user.first_name);
+          var friends = VK.Api.call('friends.get()', {user_id: current_user.id});   
+          console.log(friends); 
           
       }
     
