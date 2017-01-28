@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded",
 
   		function build_graph (event) {
           
-      		var user_id = document.getElementById("user_id").value;
-        	console.log("User ID: " + user_id);
-        	document.getElementById("content").textContent = user_id;
+      		// var user_id = document.getElementById("user_id").value;
+        // 	console.log("User ID: " + user_id);
+        // 	document.getElementById("content").textContent = user_id;
 
           
         	var r = new XMLHttpRequest();
