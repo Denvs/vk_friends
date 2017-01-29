@@ -1,10 +1,15 @@
 user_id=86612022
+
+client_id=5825448
+client_secret=0rjfybuzwrmPHVDKo11y
+redirect_uri=https://denvs.github.io/vk_friends
+code=25fa25dbfd91e8baf0
+
+https://oauth.vk.com/access_token?client_id=5825448&client_secret=0rjfybuzwrmPHVDKo11y&redirect_uri=https://denvs.github.io/vk_friends&code=25fa25dbfd91e8baf0
+
 access_token=5542fada6047f8c8bbb9640b6fd7da8a87225a7db35bb94daa6aa82c796456c7980fde0b48aea332c3152
 
 
-https://api.vk.com/method/users.get?user_id=86612022&v=5.52
-https://api.vk.com/method/friends.get?user_id=86612022&v=5.52
-https://api.vk.com/method/friends.get?user_id=1007505&v=5.52
 
 https://oauth.vk.com/authorize
 
