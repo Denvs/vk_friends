@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded",
         
         var current_user = {};
         var friends = [];
-        var token='700b9a074e4cb119543495783f4859b303771b680a6e029275c7c44d1cd227d4df48638396fd004cc90f0';
+        
         
       function vk_login (event) {
         
@@ -25,79 +25,52 @@ document.addEventListener("DOMContentLoaded",
                   console.log("Current_user: " + current_user.id);
                   var user_first_name = current_user.first_name;
                   document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
-                  
-
-  
-                                    
+                                                      
                   
                 } else {
                 // Неавторизованный в Open API пользователь,  response.status="not_authorized" 
-                    
-             
-
+                              
                   }
                 });
               
-
 
               if (response.settings) {
                 // Выбранные настройки доступа пользователя, если они были запрошены 
                 
               }
-              
-            
+                          
             } else {
                 // Пользователь нажал кнопку Отмена в окне авторизации 
                     console.log("Authorization canceled");
               }
           }) 
 
-        
       }
       
 
 
   		function build_graph (event) {
           
-          document.querySelector("#content").textContent = "test";
+
       	     
-        	VK.Api.call('friends.get', {user_id: current_user.id, fields: "first_name, last_name"}, function(response) {
+        	VK.Api.call('friends.get', {user_id: current_user.id, fields: "first_name, last_name, photo_50"}, function(response) {
               if(response) {
                   friends = response.response;
                   for (f in friends) {
                       console.log(friends[f]);
+                      var photo = friends[f].photo_50;
+                      var friend_div = document.createElement("div");
+                      friend_div.setAttribute('class', 'frnd');
+                      var photo_elem = document.createElement("img");
+                      photo_elem.setAttribute("src", photo);
+                      photo_elem.setAttribute('class', 'frnd');
+                      friend_div.appendChild(photo_elem);
+                      document.querySelector("#content").appendChild(friend_div);
+
                   }
               }
           }); 
-
-
-                  
-          /*for (var f in friends) {
-              VK.Api.call('users.get', {user_ids: friends[f]}, function(response) {
-                  if(response) {
-                        console.log(response.response[0]);
-
-                        
-                          }
-
-                      })
-                    
-                  };*/
-          /*VK.Api.call('users.get', {user_ids: "friends_ids"}, function(response) {
-                  if(response) {
-                        friends = response.response;
-                        for (f in friends) {
-                            console.log(friends[f]);
-                        }
-                        
-                          }
-
-                      })*/
-
-
-
-
-          
+              
       }
     
 
@@ -107,36 +80,7 @@ document.addEventListener("DOMContentLoaded",
 );
 
 
-/* var r = new XMLHttpRequest();
-                  
-          var url = "https://api.vk.com/method/users.get?user_id=86612022&v=5.52";
-          //var url = 'https://denvs.github.io/vk_friends/data.json'
-          r.open('GET', url, true);
-          r.onreadystatechange = function(){
-            if (r.readyState===4) {
-              if (r.status >= 200 && r.status < 400) {
-                console.log(JSON.parse(r.responseText).response[0].first_name);
-              }
-              else {
-                console.log("Error ocured: " + r.status)
-              }
-            }
-          };
- 
-          r.send();
 
-*/
-
-
-
-     /*    if (r.status != 200) {
-         // обработать ошибку
-         alert( r.status + ': ' + r.statusText ); // пример вывода: 404: Not Found
-      } else {
-         // вывести результат
-         console.log( JSON.parse(r.responseText).response[0].first_name ); // responseText -- текст ответа.
-}
-  */
 
 
 
