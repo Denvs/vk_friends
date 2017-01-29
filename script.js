@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded",
         
         var current_user = {};
         var friends = {};
-        var access_token='700b9a074e4cb119543495783f4859b303771b680a6e029275c7c44d1cd227d4df48638396fd004cc90f1';
+        var token='700b9a074e4cb119543495783f4859b303771b680a6e029275c7c44d1cd227d4df48638396fd004cc90f1';
         
       function vk_login (event) {
         
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded",
               if(response) {
                   friends = response.response;
                   for (var f in friends) {
-                      VK.Api.call('users.get', {user_id: friends[f], access_token: access_token}, function(response) {
+                      VK.Api.call('users.get', {user_id: friends[f], access_token: token}, function(response) {
                           if(response) {
                               console.log(response.response[0]);
                         
