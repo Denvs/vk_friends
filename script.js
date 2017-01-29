@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded",
     function (event) {
         
         var current_user = {};
-        var friends = {};
+        var friends = [];
         var token='700b9a074e4cb119543495783f4859b303771b680a6e029275c7c44d1cd227d4df48638396fd004cc90f0';
         
       function vk_login (event) {
@@ -61,21 +61,41 @@ document.addEventListener("DOMContentLoaded",
           
           document.querySelector("#content").textContent = "test";
       	     
-        	VK.Api.call('friends.get', {user_id: current_user.id}, function(response) {
+        	VK.Api.call('friends.get', {user_id: current_user.id, fields: "first_name, last_name"}, function(response) {
               if(response) {
                   friends = response.response;
-                  for (var f in friends) {
-                      VK.Api.call('users.get', {user_id: friends[f]}, function(response) {
-                          if(response) {
-                              console.log(response.response[0].user_id);
-                        
-                          }
-                      }); 
-                    
+                  for (f in friends) {
+                      console.log(friends[f]);
                   }
-                  
               }
           }); 
+
+
+                  
+          /*for (var f in friends) {
+              VK.Api.call('users.get', {user_ids: friends[f]}, function(response) {
+                  if(response) {
+                        console.log(response.response[0]);
+
+                        
+                          }
+
+                      })
+                    
+                  };*/
+          /*VK.Api.call('users.get', {user_ids: "friends_ids"}, function(response) {
+                  if(response) {
+                        friends = response.response;
+                        for (f in friends) {
+                            console.log(friends[f]);
+                        }
+                        
+                          }
+
+                      })*/
+
+
+
 
           
       }

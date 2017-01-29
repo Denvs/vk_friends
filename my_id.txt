@@ -5,10 +5,12 @@ client_secret=0rjfybuzwrmPHVDKo11y
 redirect_uri=https://denvs.github.io/vk_friends
 code=25fa25dbfd91e8baf0
 
-https://oauth.vk.com/access_token?client_id=5825448&client_secret=0rjfybuzwrmPHVDKo11y&redirect_uri=https://denvs.github.io/vk_friends&code=25fa25dbfd91e8baf0
 
-access_token=5542fada6047f8c8bbb9640b6fd7da8a87225a7db35bb94daa6aa82c796456c7980fde0b48aea332c3152
+https://oauth.vk.com/access_token?client_id=5825448&client_secret=0rjfybuzwrmPHVDKo11y&v=5.62&grant_type=client_credentials
+{"access_token":"d975a800d975a800d93bb297ead92d4ba8dd975d975a80081f89204e8726c299d0de899","expires_in":0}
 
+https://oauth.vk.com/authorize?client_id=5825448&scope=notify,photos,friends,audio,video,notes,pages,docs,status,questions,offers,wall,groups,messages,notifications,stats,ads,offline&redirect_uri=http://api.vk.com/blank.html&display=page&response_type=token
+access_token=700b9a074e4cb119543495783f4859b303771b680a6e029275c7c44d1cd227d4df48638396fd004cc90f1
 
 
 https://oauth.vk.com/authorize
@@ -16,3 +18,7 @@ https://oauth.vk.com/authorize
 https://oauth.vk.com/authorize?client_id=1&display=page
 &redirect_uri=http://example.com/callback&scope=friends&response_type=token&v=5.62&state=123456
 
+
+api.vk.com/method/friens.get?user_id=86612022&v=5.62&access_token=700b9a074e4cb119543495783f4859b303771b680a6e029275c7c44d1cd227d4df48638396fd004cc90f1
+
+{user_id: current_user.id},
