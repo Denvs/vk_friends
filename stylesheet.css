@@ -1,23 +1,24 @@
- div#greeting {
-    height: 50px;
-    width: 50px;
-    border: 1px solid blue;
-    border-radius: 5px;
+.container {
+	width: 80%;
+	margin: auto;
 }
 
 
 div#content   {
-	height: 500px;
-    width: 500px;
+	
     border-radius: 5px;
     border: 1px solid green;
+    margin: auto;
+    
 }
 
-div#content .frnd  {
+div#content .frnd {
+
 	height: 70px;
     width: 70px;
     border-radius: 35px;
     display: inline;
+    margin: 5px;
    
 }
 
@@ -25,5 +26,25 @@ img.frnd {
 	height: 70px;
     width: 70px;
     border-radius: 35px;
- 
+
  }
+
+ div#control {
+ 	border-radius: 5px;
+    border: 1px solid green;
+ 	margin-bottom: 10px;
+}
+
+div#div1, #div2 {
+	height: 70px;
+    width: 70px;
+    border-radius: 35px;
+    background: green;
+}
+
+#line {
+	height: 2px;
+	width: 70px;
+	background: red;
+}
+}

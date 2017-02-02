@@ -5,11 +5,12 @@ document.addEventListener("DOMContentLoaded",
         
         var current_user = {};
         var friends = [];
-        
-        
-      function vk_login (event) {
-        
         VK.init({apiId: 5825448});
+
+                
+      function login (event) {
+        
+        
         
         VK.Auth.login(function(response) {
             
@@ -22,10 +23,8 @@ document.addEventListener("DOMContentLoaded",
                 if (response.session) {
                 // Авторизованный в Open API пользователь, response.status="connected" 
                   current_user = response.session.user;
-                  console.log("Current_user: " + current_user.id);
-                  var user_first_name = current_user.first_name;
-                  document.querySelector("#greeting").textContent = "Hello, " + user_first_name;
-                                                      
+                  document.querySelector("#greeting").textContent = "Hello, " + current_user.first_name;           
+                                           
                   
                 } else {
                 // Неавторизованный в Open API пользователь,  response.status="not_authorized" 
@@ -49,10 +48,8 @@ document.addEventListener("DOMContentLoaded",
       
 
 
-  		function build_graph (event) {
-          
-
-      	     
+  		function load_friends (event) {
+              	     
         	VK.Api.call('friends.get', {user_id: current_user.id, fields: "first_name, last_name, photo_50"}, function(response) {
               if(response) {
                   friends = response.response;
@@ -74,8 +71,31 @@ document.addEventListener("DOMContentLoaded",
       }
     
 
-    document.querySelector("#login").addEventListener("click", vk_login);
-		document.querySelector("#draw_graph").addEventListener("click", build_graph);
+      function draw_connections (event) {
+          
+          var div1 = $('#div1'); 
+          var div2 = $('#div2');
+          var line = $('#line');
+          var pos1 = div1.position();
+          var pos2 = div2.position();
+          $('#line').offset({top: 220, left:120});
+          var linePos = line.position();
+
+
+          console.log(pos1);
+          console.log(pos2);
+          console.log(linePos);
+          
+          
+      }
+
+
+
+
+
+    document.querySelector("#login").addEventListener("click", login);
+		document.querySelector("#load_friends").addEventListener("click", load_friends);
+    document.querySelector("#draw_connections").addEventListener("click", draw_connections);
   }
 );
 

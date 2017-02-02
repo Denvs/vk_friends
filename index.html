@@ -3,7 +3,8 @@
 <head>
 	<title>Friends Graph</title>
   
- 
+  
+  <script src="sigma/sigma.js"></script>
   <script type="text/javascript" src="jquery-3.1.1.js" ></script>
 	<link rel='stylesheet' type='text/css' href='stylesheet.css'/>
 	<script type="text/javascript" src="script.js"></script>
@@ -15,8 +16,13 @@
 
 </head>
 <body>
+ 
+ <div class="container">
+
  <h1 id="title">Friends Graph</h1>
  
+<div id="control">
+
  <p>
     Please sign in 
     <button id="login">
@@ -24,18 +30,31 @@
     </button>
   </p>
 
-  <div id="greeting"></div>
-
+<p id="greeting"></p>
+ 
  <p>
     Press to get friends' list 
-    <button id="draw_graph">
-      Start
+    <button id="load_friends">
+      Load friends
     </button>
   </p>
 
+<!--<button id="draw_connections">
+      Draw connections
+    </button> -->
+
+</div>
   
-  <div id="content"></div>
+  <div id="content">
+
+    
+
+  </div>
 
 
+
+
+
+</div>
 </body>
 </html>
