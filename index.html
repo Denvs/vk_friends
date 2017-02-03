@@ -3,7 +3,9 @@
 <head>
 	<title>My Friends</title>
   
-  
+  <script type="text/javascript" src="vis-4.18.1/dist/vis.js"></script>
+  <link href="vis-4.18.1/dist/vis.css" rel="stylesheet" type="text/css" />
+
   
   <script type="text/javascript" src="jquery-3.1.1.js" ></script>
 	<link rel='stylesheet' type='text/css' href='stylesheet.css'/>
@@ -23,25 +25,21 @@
  
 <div id="control">
 
- <p>
-    Please sign in 
-    <button id="login">
-      Sign in
-    </button>
-  </p>
+ 
+<button class="login">Sign in</button>
+
 
 <p id="greeting"></p>
  
- <p>
-    Press to get friends' list 
-    <button id="load_friends">
-      Load friends
-    </button>
-  </p>
 
-<!--<button id="draw_connections">
+<button id="load_friends">
+      Load friends
+</button>
+
+
+<button id="draw_connections">
       Draw connections
-    </button> -->
+    </button>
 
 </div>
   
@@ -51,6 +49,7 @@
 
   </div>
 
+<div id="mynetwork"></div>
 
 
 

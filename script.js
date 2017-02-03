@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded",
         var current_user = {};
         var friends = [];
         VK.init({apiId: 5825448});
-
+        
                 
       function login (event) {
         
@@ -23,7 +23,18 @@ document.addEventListener("DOMContentLoaded",
                 if (response.session) {
                 // Авторизованный в Open API пользователь, response.status="connected" 
                   current_user = response.session.user;
-                  document.querySelector("#greeting").textContent = "Hello, " + current_user.first_name;           
+                  document.querySelector("#greeting").textContent = "Hello, " + current_user.first_name;
+                  
+                  document.querySelector("button.login").removeEventListener("click", login);
+                  document.querySelector("button.login").setAttribute("class", 'logout');
+                  document.querySelector("button.logout").innerHTML = 'Sign out';
+                  document.querySelector("button.logout").addEventListener("click", logout);
+
+
+
+
+                  document.querySelector("#load_friends").addEventListener("click", load_friends);
+                  document.querySelector("#draw_connections").addEventListener("click", draw_connections);           
                                            
                   
                 } else {
@@ -47,11 +58,20 @@ document.addEventListener("DOMContentLoaded",
       }
       
 
+      function logout() {
+          VK.Auth.logout(function(response) {
+            console.log('Log out VK');
+            document.location.reload();
+          });
+      }
+  
+
+
 
   		function load_friends (event) {
               	     
         	VK.Api.call('friends.get', {user_id: current_user.id, fields: "first_name, last_name, photo_50"}, function(response) {
-              if(response) {
+              if(response && document.querySelector("#content").children.length == 0) {
                   friends = response.response;
                   for (f in friends) {
                       console.log(friends[f]);
@@ -90,12 +110,46 @@ document.addEventListener("DOMContentLoaded",
       }
 
 
+ // create an array with nodes
+    var nodes = new vis.DataSet([
+        {id: 1, label: 'Node 1'},
+        {id: 2, label: 'Node 2'},
+        {id: 3, label: 'Node 3'},
+        {id: 4, label: 'Node 4'},
+        {id: 5, label: 'Node 5'}
+    ]);
+
+    // create an array with edges
+    var edges = new vis.DataSet([
+        {from: 1, to: 3},
+        {from: 1, to: 2},
+        {from: 2, to: 4},
+        {from: 2, to: 5}
+    ]);
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var options = {};
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
 
 
 
-    document.querySelector("#login").addEventListener("click", login);
-		document.querySelector("#load_friends").addEventListener("click", load_friends);
-    document.querySelector("#draw_connections").addEventListener("click", draw_connections);
+
+
+
+
+    document.querySelector("button.login").addEventListener("click", login);
+		
+    
+    
   }
 );
 
