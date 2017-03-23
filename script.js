@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded",
                    // create an array with edges
                   var edges = new vis.DataSet();
 
-
+                  nodes.add({id: current_user.id, label: "Me"});
                   for (f in friends) {
 
                       friend = friends[f];
@@ -96,30 +96,18 @@ document.addEventListener("DOMContentLoaded",
                       // photo_elem.setAttribute('class', 'frnd');
                       // friend_div.appendChild(photo_elem);
                       
-                      nodes.add({id: friend.user_id, label: friend.first_name+friend.last_name});
+                      nodes.add({id: friend.user_id, label: friend.first_name});
+                      edges.add({from: current_user.id, to: friend.user_id});
 
                                                                 
                                             
-                      VK.Api.call('friends.get', {user_id: current_user.id}, function(response) {
-                          
-                          if(response) {
-                              
-                              var friend_friends = response.response;
-                              console.log(friend_friends);
-                              
-                              
-                                                       
-                                                       
-                              }
-                                             
-                         
-                      });
+ 
                       
 
                                       
                   }
 
-                //console.log(friends_friends);  
+               
 
                                   
 
