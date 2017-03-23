@@ -21,4 +21,3 @@ https://oauth.vk.com/authorize?client_id=1&display=page
 
 api.vk.com/method/friens.get?user_id=86612022&v=5.62&access_token=700b9a074e4cb119543495783f4859b303771b680a6e029275c7c44d1cd227d4df48638396fd004cc90f1
 
-{user_id: current_user.id},

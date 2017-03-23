@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded",
         
         var current_user = {};
         var friends = [];
+        var friend;
+       
+        
         VK.init({apiId: 5825448});
         
                 
@@ -71,74 +74,125 @@ document.addEventListener("DOMContentLoaded",
   		function load_friends (event) {
               	     
         	VK.Api.call('friends.get', {user_id: current_user.id, fields: "first_name, last_name, photo_50"}, function(response) {
-              if(response && document.querySelector("#content").children.length == 0) {
+              if(response && document.querySelector("#mynetwork").children.length == 0) {
                   friends = response.response;
-                  for (f in friends) {
-                      console.log(friends[f]);
-                      var photo = friends[f].photo_50;
-                      var friend_div = document.createElement("div");
-                      friend_div.setAttribute('class', 'frnd');
-                      var photo_elem = document.createElement("img");
-                      photo_elem.setAttribute("src", photo);
-                      photo_elem.setAttribute('class', 'frnd');
-                      friend_div.appendChild(photo_elem);
-                      document.querySelector("#content").appendChild(friend_div);
+                  
+                  //create an array with nodes
+                  var nodes = new vis.DataSet();
+                   
+                   // create an array with edges
+                  var edges = new vis.DataSet();
 
+
+                  for (f in friends) {
+
+                      friend = friends[f];
+                      console.log(friend);
+                      // var photo = friends[f].photo_50;
+                      // var friend_div = document.createElement("div");
+                      // friend_div.setAttribute('class', 'frnd');
+                      // var photo_elem = document.createElement("img");
+                      // photo_elem.setAttribute("src", photo);
+                      // photo_elem.setAttribute('class', 'frnd');
+                      // friend_div.appendChild(photo_elem);
+                      
+                      nodes.add({id: friend.user_id, label: friend.first_name+friend.last_name});
+
+                                                                
+                                            
+                      VK.Api.call('friends.get', {user_id: current_user.id}, function(response) {
+                          
+                          if(response) {
+                              
+                              var friend_friends = response.response;
+                              console.log(friend_friends);
+                              
+                              
+                                                       
+                                                       
+                              }
+                                             
+                         
+                      });
+                      
+
+                                      
                   }
-              }
-          }); 
+
+                //console.log(friends_friends);  
+
+                                  
+
+                // create a network
+                var container = document.getElementById('mynetwork');
+          
+                // provide the data in the vis format
+                var data = {
+                    nodes: nodes,
+                    edges: edges
+                };
+
+                var options = {};
+
+                // initialize your network!
+                var network = new vis.Network(container, data, options);
+
+                      }
+                  }); 
               
+
+           
+       
+
+        
+
+       
+
       }
     
-
+$(document).ready(function() {
       function draw_connections (event) {
           
-          var div1 = $('#div1'); 
-          var div2 = $('#div2');
-          var line = $('#line');
-          var pos1 = div1.position();
-          var pos2 = div2.position();
-          $('#line').offset({top: 220, left:120});
-          var linePos = line.position();
+        /*var node1 = document.querySelector('Tom');
+        
+        var node2 = document.querySelector('Mary');*/
+
+        // create an array with nodes
+        // var nodes = new vis.DataSet([
+        //     /*{id: node1, label: 'Tom'},
+        //     {id: node2, label: 'Mary'}*/
+        //     {id: 1, label: 'Tom'},
+        //     {id: 2, label: 'Mary'}
+
+        // ]);
+
+        // // create an array with edges
+        // var edges = new vis.DataSet([
+        //     {from: 1, to: 2}
+
+        // ]);
+
+        // // create a network
+        // var container = document.getElementById('mynetwork');
+  
+        // // provide the data in the vis format
+        // var data = {
+        //     nodes: nodes,
+        //     edges: edges
+        // };
+
+        // var options = {};
+
+        // // initialize your network!
+        // var network = new vis.Network(container, data, options);
 
 
-          console.log(pos1);
-          console.log(pos2);
-          console.log(linePos);
-          
+
           
       }
 
 
- // create an array with nodes
-    var nodes = new vis.DataSet([
-        {id: 1, label: 'Node 1'},
-        {id: 2, label: 'Node 2'},
-        {id: 3, label: 'Node 3'},
-        {id: 4, label: 'Node 4'},
-        {id: 5, label: 'Node 5'}
-    ]);
-
-    // create an array with edges
-    var edges = new vis.DataSet([
-        {from: 1, to: 3},
-        {from: 1, to: 2},
-        {from: 2, to: 4},
-        {from: 2, to: 5}
-    ]);
-
-    // create a network
-    var container = document.getElementById('mynetwork');
-
-    // provide the data in the vis format
-    var data = {
-        nodes: nodes,
-        edges: edges
-    };
-    var options = {};
-
-    // initialize your network!
-    var network = new vis.Network(container, data, options);
+});
 
 
 
