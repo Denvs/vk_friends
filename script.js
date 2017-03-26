@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded",
                 // Пользователь нажал кнопку Отмена в окне авторизации 
                     console.log("Authorization canceled");
               }
-          }) 
+          }, 2) 
 
       }
       
@@ -84,10 +84,13 @@ document.addEventListener("DOMContentLoaded",
                   var edges = new vis.DataSet();
 
                   nodes.add({id: current_user.id, label: "Me"});
+
+                 
+
                   for (f in friends) {
 
                       friend = friends[f];
-                      console.log(friend);
+                      //console.log(friend);
                       // var photo = friends[f].photo_50;
                       // var friend_div = document.createElement("div");
                       // friend_div.setAttribute('class', 'frnd');
@@ -98,14 +101,40 @@ document.addEventListener("DOMContentLoaded",
                       
                       nodes.add({id: friend.user_id, label: friend.first_name});
                       edges.add({from: current_user.id, to: friend.user_id});
-
-                                                                
-                                            
- 
                       
 
-                                      
+                                          
+                                    
+                                    
                   }
+
+
+                 
+
+
+                  // VK.Api.call('account.getAppPermissions', {user_id: current_user.id}, function(response){
+                  //   if (response){
+                  //     var result = response;
+                  //     console.log(result);
+                  //   }
+                  // });
+
+
+
+                    VK.Api.call('friends.getMutual', {target_uid: friend.user_id}, function(response){
+                          if (response){
+                              var mut_friends = response.response;
+                              console.log(mut_friends);
+                              for (frnd in mut_friends) {
+                                  edges.add({from: friend.user_id, to: mut_friends[frnd]});
+                              }
+                              
+                          }
+                      }); 
+
+
+
+
 
                
 
@@ -124,6 +153,17 @@ document.addEventListener("DOMContentLoaded",
 
                 // initialize your network!
                 var network = new vis.Network(container, data, options);
+
+
+
+
+
+
+
+
+
+
+
 
                       }
                   }); 
