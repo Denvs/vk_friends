@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded",
         
         var current_user = {};
         var friends = [];
-        var friend;
+        var mutual_friends = [];
+        
        
         
         VK.init({apiId: 5825448});
@@ -89,7 +90,7 @@ document.addEventListener("DOMContentLoaded",
 
                   for (f in friends) {
 
-                      friend = friends[f];
+                      var friend = friends[f];
                       //console.log(friend);
                       // var photo = friends[f].photo_50;
                       // var friend_div = document.createElement("div");
@@ -101,6 +102,10 @@ document.addEventListener("DOMContentLoaded",
                       
                       nodes.add({id: friend.user_id, label: friend.first_name});
                       edges.add({from: current_user.id, to: friend.user_id});
+                      
+
+                     
+                      
                       
 
                                           
@@ -120,22 +125,27 @@ document.addEventListener("DOMContentLoaded",
                   // });
 
 
+                  // for (frnd in friends) {
+                        
+                      
+                      
+                  //           VK.Api.call('friends.getMutual', {target_uid: friends[frnd].user_id}, function(response){
+                                
+                  //               if (response){
+                  //                   mutual_friends = response.response; 
+                  //                   console.log(mutual_friends); 
+                                    
+                                    
+                  //               }
+                  //           });
+                            
+                  //           setTimeout(5000);
+                  // }
 
-                    VK.Api.call('friends.getMutual', {target_uid: friend.user_id}, function(response){
-                          if (response){
-                              var mut_friends = response.response;
-                              console.log(mut_friends);
-                              for (frnd in mut_friends) {
-                                  edges.add({from: friend.user_id, to: mut_friends[frnd]});
-                              }
-                              
-                          }
-                      }); 
 
-
-
-
-
+                  // for (m_frnd in mut_friends) {
+                  //                       edges.add({from: friends[frnd].user_id, to: mut_friends[m_frnd]});
+                  //                   }
                
 
                                   
